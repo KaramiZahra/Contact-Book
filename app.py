@@ -39,6 +39,17 @@ def index():
         return render_template("index.html", contacts=contacts)
 
 
+@app.route("/delete/<int:id>")
+def delete(id: int):
+    delete_contact = Contact.query.get_or_404(id)
+    try:
+        db.session.delete(delete_contact)
+        db.session.commit()
+        return redirect("/")
+    except Exception as e:
+        return f"Operation failed: {e}"
+
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
