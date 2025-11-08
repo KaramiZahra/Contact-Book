@@ -50,6 +50,23 @@ def delete(id: int):
         return f"Operation failed: {e}"
 
 
+@app.route("/edit/<int:id>", methods=["POST", "GET"])
+def edit(id: int):
+    edit_contact = Contact.query.get_or_404(id)
+    if request.method == "POST":
+        edit_contact.contact_name = request.form["contact-name"] or edit_contact.contact_name
+        edit_contact.contact_phone = request.form["contact-phone"] or edit_contact.contact_phone
+        edit_contact.contact_email = request.form["contact-email"] or edit_contact.contact_email
+        edit_contact.contact_address = request.form["contact-address"] or edit_contact.contact_address
+        try:
+            db.session.commit()
+            return redirect("/")
+        except Exception as e:
+            return f"Operation failed: {e}"
+    else:
+        return render_template("edit.html", contact=edit_contact)
+
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()

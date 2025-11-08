@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2>Edit Contact</h2>
+<form action="/edit/{{contact.contact_id}}" method="POST">
+    <input type="text" name="contact-name" id="contact-name" placeholder={{contact.contact_name}}>
+    <input type="tel" name="contact-phone" id="contact-phone" placeholder={{contact.contact_phone}}>
+    <input type="email" name="contact-email" id="contact-email" placeholder={{contact.contact_email}}>
+    <input type="text" name="contact-address" id="contact-address" placeholder={{contact.contact_address}}>
+    <input type="submit" value="Edit Contact">
+</form>
+{% endblock%}
