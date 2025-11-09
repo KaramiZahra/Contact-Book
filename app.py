@@ -31,7 +31,7 @@ def index():
         try:
             db.session.add(new_contact)
             db.session.commit()
-            return redirect("/")
+            return redirect("/contacts")
         except Exception as e:
             return f"Operation failed: {e}"
 
