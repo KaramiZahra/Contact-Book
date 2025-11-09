@@ -34,9 +34,14 @@ def index():
             return redirect("/")
         except Exception as e:
             return f"Operation failed: {e}"
-    else:
-        contacts = Contact.query.all()
-        return render_template("index.html", contacts=contacts)
+
+    return render_template("index.html")
+
+
+@app.route("/contacts")
+def show_contacts():
+    contacts = Contact.query.all()
+    return render_template("contacts.html", contacts=contacts)
 
 
 @app.route("/delete/<int:id>")

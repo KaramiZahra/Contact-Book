@@ -12,30 +12,7 @@
             <input type="text" name="contact-address" id="contact-address" placeholder="Home Address">
             <input type="submit" value="Save Contact">
         </form>
-    </div>
-    <div class="prev_contacts">
-        {% if not contacts %} <h3>No contacts available!</h3>
-        {% else %}
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Email Address</th>
-                <th>Home Address</th>
-                <th>Actions</th>
-            </tr>
-            {% for contact in contacts %}
-            <tr>
-                <td>{{contact.contact_name}}</td>
-                <td>{{contact.contact_phone}}</td>
-                <td>{{contact.contact_email}}</td>
-                <td>{{contact.contact_address}}</td>
-                <td><a href="/delete/{{contact.contact_id}}">Delete</a> | <a
-                        href="/edit/{{contact.contact_id}}">Edit</a></td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% endif %}
+        <a href="/contacts">See all contacts</a>
     </div>
 </div>
 
