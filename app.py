@@ -38,10 +38,16 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/contacts")
+@app.route("/contacts", methods=["POST", "GET"])
 def show_contacts():
-    contacts = Contact.query.all()
-    return render_template("contacts.html", contacts=contacts)
+    if request.method == "POST":
+        current_search = request.form["search"].lower().strip()
+        filtered_contacts = Contact.query.filter(
+            Contact.contact_name.ilike(f"{current_search}%")).all()
+        return render_template("contacts.html", contacts=filtered_contacts)
+    else:
+        contacts = Contact.query.all()
+        return render_template("contacts.html", contacts=contacts)
 
 
 @app.route("/delete/<int:id>")

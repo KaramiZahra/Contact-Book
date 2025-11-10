@@ -6,6 +6,12 @@
     <a href="/">Back</a>
     {% if not contacts %} <h3>No contacts available!</h3>
     {% else %}
+    <form action="/contacts" method="POST">
+        <label for="search">
+            <input type="text" name="search" id="search" placeholder="Search...">
+        </label>
+        <input type="submit" value="Search">
+    </form>
     <table>
         <tr>
             <th>Name</th>
