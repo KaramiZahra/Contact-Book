@@ -1,12 +1,18 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
+from flask_assets import Environment, Bundle
 
 app = Flask(__name__)
+assets = Environment(app)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///ContactsDB.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
+
+scss = Bundle('scss/style.scss', filters='libsass', output='css/style.css', depends='scss/*.scss')
+assets.register('scss_all', scss)
+scss.build()
 
 
 class Contact(db.Model):

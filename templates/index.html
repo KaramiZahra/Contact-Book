@@ -2,18 +2,16 @@
 
 {% block body %}
 
-<div class="content">
-    <div class="new_contact">
-        <h2>New Contact</h2>
-        <form action="/" method="POST">
-            <input type="text" name="contact-name" id="contact-name" placeholder="*Contact Name" required>
-            <input type="tel" name="contact-phone" id="contact-phone" placeholder="*Phone Number" required>
-            <input type="email" name="contact-email" id="contact-email" placeholder="Email Address">
-            <input type="text" name="contact-address" id="contact-address" placeholder="Home Address">
-            <input type="submit" value="Save Contact">
-        </form>
-        <a href="/contacts">See all contacts</a>
-    </div>
+<div class="new_contact">
+    <h2>New Contact</h2>
+    <form action="/" method="POST">
+        <input type="text" name="contact-name" id="contact-name" placeholder="*Contact Name" required>
+        <input type="tel" name="contact-phone" id="contact-phone" placeholder="*Phone Number" required>
+        <input type="email" name="contact-email" id="contact-email" placeholder="Email Address">
+        <input type="text" name="contact-address" id="contact-address" placeholder="Home Address">
+        <input type="submit" value="Save Contact">
+    </form>
+    <a href="/contacts">See all contacts</a>
 </div>
 
 {% endblock %}
