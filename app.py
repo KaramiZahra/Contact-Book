@@ -10,9 +10,10 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///ContactsDB.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
-scss = Bundle('scss/style.scss', filters='libsass', output='css/style.css', depends='scss/*.scss')
+assets.auto_build = True
+app.config['ASSETS_DEBUG'] = True
+scss = Bundle('scss/style.scss', filters='libsass', output='scss/style.css')
 assets.register('scss_all', scss)
-scss.build()
 
 
 class Contact(db.Model):
@@ -29,10 +30,10 @@ class Contact(db.Model):
 @app.route("/", methods=["POST", "GET"])
 def index():
     if request.method == "POST":
-        current_name = request.form["contact-name"].strip()
-        current_phone = request.form["contact-phone"].strip()
-        current_email = request.form["contact-email"].strip()
-        current_address = request.form["contact-address"].strip()
+        current_name = request.form["contact_name"].strip()
+        current_phone = request.form["contact_phone"].strip()
+        current_email = request.form["contact_email"].strip()
+        current_address = request.form["contact_address"].strip()
         new_contact = Contact(contact_name=current_name, contact_phone=current_phone,
                               contact_email=current_email, contact_address=current_address)
         try:
@@ -72,10 +73,10 @@ def delete(id: int):
 def edit(id: int):
     edit_contact = Contact.query.get_or_404(id)
     if request.method == "POST":
-        edit_contact.contact_name = request.form["contact-name"] or edit_contact.contact_name
-        edit_contact.contact_phone = request.form["contact-phone"] or edit_contact.contact_phone
-        edit_contact.contact_email = request.form["contact-email"] or edit_contact.contact_email
-        edit_contact.contact_address = request.form["contact-address"] or edit_contact.contact_address
+        edit_contact.contact_name = request.form["contact_name"] or edit_contact.contact_name
+        edit_contact.contact_phone = request.form["contact_phone"] or edit_contact.contact_phone
+        edit_contact.contact_email = request.form["contact_email"] or edit_contact.contact_email
+        edit_contact.contact_address = request.form["contact_address"] or edit_contact.contact_address
         try:
             db.session.commit()
             return redirect("/contacts")
