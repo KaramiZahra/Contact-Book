@@ -23,10 +23,10 @@ class Contact(db.Model):
 @app.route("/", methods=["POST", "GET"])
 def index():
     if request.method == "POST":
-        current_name = request.form["contact-name"]
-        current_phone = request.form["contact-phone"]
-        current_email = request.form["contact-email"]
-        current_address = request.form["contact-address"]
+        current_name = request.form["contact-name"].strip()
+        current_phone = request.form["contact-phone"].strip()
+        current_email = request.form["contact-email"].strip()
+        current_address = request.form["contact-address"].strip()
         new_contact = Contact(contact_name=current_name, contact_phone=current_phone,
                               contact_email=current_email, contact_address=current_address)
         try:
@@ -57,7 +57,7 @@ def delete(id: int):
     try:
         db.session.delete(delete_contact)
         db.session.commit()
-        return redirect("/")
+        return redirect("/contacts")
     except Exception as e:
         return f"Operation failed: {e}"
 
@@ -72,7 +72,7 @@ def edit(id: int):
         edit_contact.contact_address = request.form["contact-address"] or edit_contact.contact_address
         try:
             db.session.commit()
-            return redirect("/")
+            return redirect("/contacts")
         except Exception as e:
             return f"Operation failed: {e}"
     else:
