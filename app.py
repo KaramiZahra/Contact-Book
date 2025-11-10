@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import or_
 
 app = Flask(__name__)
 
@@ -42,8 +43,8 @@ def index():
 def show_contacts():
     if request.method == "POST":
         current_search = request.form["search"].lower().strip()
-        filtered_contacts = Contact.query.filter(
-            Contact.contact_name.ilike(f"{current_search}%")).all()
+        filtered_contacts = Contact.query.filter(or_(Contact.contact_name.ilike(f"%{current_search}%"),
+                                                     Contact.contact_phone.ilike(f"%{current_search}%"))).all()
         return render_template("contacts.html", contacts=filtered_contacts)
     else:
         contacts = Contact.query.all()
