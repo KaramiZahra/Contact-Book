@@ -130,4 +130,48 @@ body {
 .prev_contacts table td a:hover {
   color: #748dae;
   cursor: pointer;
+}
+
+.edit_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffeaea;
+  width: 400px;
+  height: 280px;
+  margin-top: 27px;
+}
+.edit_box h2 {
+  color: #636363;
+}
+.edit_box form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.edit_box form input {
+  width: 80%;
+  margin: 7px 0;
+  padding: 7px;
+}
+.edit_box form input:focus {
+  border: 2px solid #f5cbcb;
+  border-radius: 5px;
+  outline: none;
+}
+.edit_box form input[type=submit] {
+  background-color: #748dae;
+  color: #f1f1f1;
+  border: 2px solid #748dae;
+  border-radius: 5px;
+  padding: 12px;
+  width: 84.5%;
+  font-size: 15px;
+}
+.edit_box form input[type=submit]:hover {
+  background-color: #829fc4;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

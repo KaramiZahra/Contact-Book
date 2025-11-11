@@ -13,6 +13,33 @@ $white: #f1f1f1;
   align-items: center;
   flex-direction: column;
 }
+@mixin FormStyle() {
+  @include FlexCenter();
+  width: 100%;
+  input {
+    width: 80%;
+    margin: 7px 0;
+    padding: 7px;
+    &:focus {
+      border: 2px solid $dark-pink;
+      border-radius: 5px;
+      outline: none;
+    }
+  }
+  input[type="submit"] {
+    background-color: $dark-blue;
+    color: $white;
+    border: 2px solid $dark-blue;
+    border-radius: 5px;
+    padding: 12px;
+    width: 84.5%;
+    font-size: 15px;
+    &:hover {
+      background-color: $medium-blue;
+      cursor: pointer;
+    }
+  }
+}
 
 body {
   @include FlexCenter();
@@ -30,31 +57,7 @@ body {
     color: $dark-gray;
   }
   form {
-    @include FlexCenter();
-    width: 100%;
-    input {
-      width: 80%;
-      margin: 7px 0;
-      padding: 7px;
-      &:focus {
-        border: 2px solid $dark-pink;
-        border-radius: 5px;
-        outline: none;
-      }
-    }
-    input[type="submit"] {
-      background-color: $dark-blue;
-      color: $white;
-      border: 2px solid $dark-blue;
-      border-radius: 5px;
-      padding: 12px;
-      width: 84.5%;
-      font-size: 15px;
-      &:hover {
-        background-color: $medium-blue;
-        cursor: pointer;
-      }
-    }
+    @include FormStyle();
   }
   .all_contacts_btn {
     border: 2px solid $dark-gray;
@@ -130,5 +133,18 @@ body {
         }
       }
     }
+  }
+}
+.edit_box {
+  @include FlexCenter();
+  background-color: $light-pink;
+  width: 400px;
+  height: 280px;
+  margin-top: 27px;
+  h2 {
+    color: $dark-gray;
+  }
+  form {
+    @include FormStyle();
   }
 }
