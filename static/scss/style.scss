@@ -72,3 +72,63 @@ body {
     }
   }
 }
+.prev_contacts {
+  @include FlexCenter();
+  background-color: $light-pink;
+  width: 550px;
+  height: max-content;
+  margin-top: 27px;
+  padding: 20px;
+  h3 {
+    color: $dark-gray;
+  }
+  form {
+    display: flex;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    input {
+      padding: 7px;
+      border: 2px solid #fff;
+      border-radius: 5px 0 0 5px;
+      &:focus {
+        border: 2px solid $dark-pink;
+        outline: none;
+      }
+    }
+    input[type="submit"] {
+      background-color: $dark-pink;
+      color: $dark-gray;
+      border: 2px solid $dark-pink;
+      border-radius: 0 5px 5px 0;
+      &:hover {
+        background-color: $light-pink;
+        cursor: pointer;
+      }
+    }
+  }
+  table {
+    border-collapse: collapse;
+    text-align: center;
+    th,
+    td {
+      border: 2px solid $dark-blue;
+      padding: 7px;
+    }
+    th {
+      background-color: $medium-blue;
+      color: $white;
+    }
+    td {
+      background-color: $light-gray;
+      a {
+        font-weight: bold;
+        color: $dark-gray;
+        &:hover {
+          color: $dark-blue;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

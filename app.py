@@ -21,7 +21,6 @@ class Contact(db.Model):
     contact_name = db.Column(db.String(255), nullable=False)
     contact_phone = db.Column(db.String(255), nullable=False)
     contact_email = db.Column(db.String(255))
-    contact_address = db.Column(db.String(255))
 
     def __repr__(self):
         return f"Contact: {self.contact_id}"
@@ -33,9 +32,8 @@ def index():
         current_name = request.form["contact_name"].strip()
         current_phone = request.form["contact_phone"].strip()
         current_email = request.form["contact_email"].strip()
-        current_address = request.form["contact_address"].strip()
-        new_contact = Contact(contact_name=current_name, contact_phone=current_phone,
-                              contact_email=current_email, contact_address=current_address)
+        new_contact = Contact(contact_name=current_name,
+                              contact_phone=current_phone, contact_email=current_email)
         try:
             db.session.add(new_contact)
             db.session.commit()
@@ -76,7 +74,6 @@ def edit(id: int):
         edit_contact.contact_name = request.form["contact_name"] or edit_contact.contact_name
         edit_contact.contact_phone = request.form["contact_phone"] or edit_contact.contact_phone
         edit_contact.contact_email = request.form["contact_email"] or edit_contact.contact_email
-        edit_contact.contact_address = request.form["contact_address"] or edit_contact.contact_address
         try:
             db.session.commit()
             return redirect("/contacts")

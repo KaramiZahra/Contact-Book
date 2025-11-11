@@ -65,4 +65,69 @@ body {
 .new_contact .all_contacts_btn:hover {
   background-color: #b6b6b6;
   cursor: pointer;
+}
+
+.prev_contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffeaea;
+  width: 550px;
+  height: -moz-max-content;
+  height: max-content;
+  margin-top: 27px;
+  padding: 20px;
+}
+.prev_contacts h3 {
+  color: #636363;
+}
+.prev_contacts form {
+  display: flex;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.prev_contacts form input {
+  padding: 7px;
+  border: 2px solid #fff;
+  border-radius: 5px 0 0 5px;
+}
+.prev_contacts form input:focus {
+  border: 2px solid #f5cbcb;
+  outline: none;
+}
+.prev_contacts form input[type=submit] {
+  background-color: #f5cbcb;
+  color: #636363;
+  border: 2px solid #f5cbcb;
+  border-radius: 0 5px 5px 0;
+}
+.prev_contacts form input[type=submit]:hover {
+  background-color: #ffeaea;
+  cursor: pointer;
+}
+.prev_contacts table {
+  border-collapse: collapse;
+  text-align: center;
+}
+.prev_contacts table th,
+.prev_contacts table td {
+  border: 2px solid #748dae;
+  padding: 7px;
+}
+.prev_contacts table th {
+  background-color: #829fc4;
+  color: #f1f1f1;
+}
+.prev_contacts table td {
+  background-color: #b6b6b6;
+}
+.prev_contacts table td a {
+  font-weight: bold;
+  color: #636363;
+}
+.prev_contacts table td a:hover {
+  color: #748dae;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
