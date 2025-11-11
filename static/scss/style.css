@@ -131,6 +131,18 @@ body {
   color: #748dae;
   cursor: pointer;
 }
+.prev_contacts .back_btn {
+  background-color: #9ecad6;
+  color: #636363;
+  padding: 8px 13px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.prev_contacts .back_btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 
 .edit_box {
   display: flex;

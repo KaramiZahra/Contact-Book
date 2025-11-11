@@ -134,6 +134,18 @@ body {
       }
     }
   }
+  .back_btn {
+    background-color: $light-blue;
+    color: $dark-gray;
+    padding: 8px 13px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
 }
 .edit_box {
   @include FlexCenter();
