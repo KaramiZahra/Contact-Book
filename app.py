@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_file
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
 from flask_assets import Environment, Bundle
+import io
+import csv
 
 app = Flask(__name__)
 assets = Environment(app)
@@ -81,6 +83,29 @@ def edit(id: int):
             return f"Operation failed: {e}"
     else:
         return render_template("edit.html", contact=edit_contact)
+
+
+@app.route("/export")
+def export_contacts():
+    contacts = Contact.query.all()
+    output = io.StringIO()
+
+    writer = csv.writer(output)
+    writer.writerow(["Name", "Phone Number", "Email Address"])
+    for contact in contacts:
+        writer.writerow([
+            contact.contact_name,
+            contact.contact_phone,
+            contact.contact_email or "",
+        ])
+    output.seek(0)
+
+    return send_file(
+        io.BytesIO(output.getvalue().encode("utf-8")),
+        mimetype="text/csv",
+        as_attachment=True,
+        download_name="contacts.csv"
+    )
 
 
 if __name__ == "__main__":

@@ -134,15 +134,35 @@ body {
       }
     }
   }
+  .export_btn {
+    border: 2px solid $light-blue;
+    background-color: $white;
+    border-radius: 5px;
+    width: 85.5%;
+    text-align: center;
+    padding: 7px 0;
+    font-weight: bold;
+    margin: 20px 0;
+    a {
+      text-decoration: none;
+      color: $dark-gray;
+    }
+    &:hover {
+      background-color: $light-blue;
+      cursor: pointer;
+    }
+  }
   .back_btn {
     background-color: $light-blue;
+    border: 2px solid $light-blue;
     color: $dark-gray;
-    padding: 8px 13px;
     border-radius: 5px;
     font-weight: bold;
-    margin-top: 20px;
+    text-align: center;
+    padding: 8px 0;
+    width: 85.5%;
     &:hover {
-      transform: scale(1.1);
+      background-color: $white;
       cursor: pointer;
     }
   }

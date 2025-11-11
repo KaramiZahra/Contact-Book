@@ -131,16 +131,36 @@ body {
   color: #748dae;
   cursor: pointer;
 }
+.prev_contacts .export_btn {
+  border: 2px solid #9ecad6;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  width: 85.5%;
+  text-align: center;
+  padding: 7px 0;
+  font-weight: bold;
+  margin: 20px 0;
+}
+.prev_contacts .export_btn a {
+  text-decoration: none;
+  color: #636363;
+}
+.prev_contacts .export_btn:hover {
+  background-color: #9ecad6;
+  cursor: pointer;
+}
 .prev_contacts .back_btn {
   background-color: #9ecad6;
+  border: 2px solid #9ecad6;
   color: #636363;
-  padding: 8px 13px;
   border-radius: 5px;
   font-weight: bold;
-  margin-top: 20px;
+  text-align: center;
+  padding: 8px 0;
+  width: 85.5%;
 }
 .prev_contacts .back_btn:hover {
-  transform: scale(1.1);
+  background-color: #f1f1f1;
   cursor: pointer;
 }
 
